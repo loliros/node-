@@ -1,0 +1,48 @@
+CREATE TABLE tea
+(
+	teaId INT PRIMARY KEY AUTO_INCREMENT,
+	teaName VARCHAR(100),
+	teatypeId int,
+	foreign key (teatypeId)  references  teaselect(teaId)
+);
+create table sugarice(
+	id int  primary key  auto_increment,
+	name varchar(100)
+);
+create  table  admin(
+   adminId  int  primary key  auto_increment,
+   adminName  varchar(100), 
+   adminPass  varchar(100),
+   adminMobile  varchar(20),
+   adminEmail   varchar(300)
+);
+create table teaselect
+(
+	teaId INT PRIMARY KEY AUTO_INCREMENT,
+	teatype int,
+	teaName varchar(100),
+	teaice varchar(100),
+	teasugar varchar(100),
+	teamoney int
+);
+insert into tea(teaName) values ('传承奶茶'),('静饮清茶'),('琉璃仙酿'),('渡世黑糖珍珠'),('长生水果茶');
+INSERT INTO admin
+(adminName,adminPass,adminMobile,adminEmail)
+VALUES
+('虫虫','123','1234','1234567890@qq.com'),
+('罗海','123456','12345','123456789@qq.com'),
+('洛斯','12345678','123456789','12345678@qq.com');
+insert into teaselect (teatype,teaName,teaice,teasugar,teamoney) values
+(1,'烤奶','正常冰','正常糖',6),
+(2,'红茶','正常冰','正常糖',4),
+(3,'古早经典仙酿','正常冰','正常糖',6),
+(4,'琉璃黑糖珍珠','正常冰','正常糖',6),
+(5,'长生百香果','正常冰','正常糖',6),
+(1,'红豆奶茶','正常冰','正常糖',7),
+(1,'樱花珍珠奶茶','正常冰','正常糖',7);
+insert into sugarice(name) values ('正常糖'),('多糖'),('少糖'),('无糖'),('正常冰'),('少冰'),('常温'),('温热');
+
+转换表的编码格式
+alter table tea CONVERT TO CHARACTER SET utf8;
+alter table teaselect CONVERT TO CHARACTER SET utf8;
+alter table sugarice CONVERT TO CHARACTER SET utf8;
